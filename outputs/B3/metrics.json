@@ -1,0 +1,22 @@
+{
+  "experiment": "B3",
+  "model": "PP-OCRv5_server_rec",
+  "weights": "model_B3",
+  "model_dir": "model/PP-OCR-v5/model_B3_infer",
+  "fine_tuned": true,
+  "custom_dictionary": false,
+  "augmentation": false,
+  "postprocessing": false,
+  "device": "gpu:0",
+  "manifest": "dataset/proccessed/MTHv2/test.tsv",
+  "unicode_normalization": "NFC",
+  "num_samples": 25262,
+  "num_ground_truth_characters": 263342,
+  "total_edit_distance": 5757,
+  "cer": 0.021861305830441023,
+  "exact_match_accuracy": 0.8384530124297364,
+  "mean_model_confidence": 0.9735122110979847,
+  "elapsed_seconds": 215.8557031549999,
+  "lines_per_second": 117.03188579576269,
+  "milliseconds_per_line": 8.544679881046628
+}
