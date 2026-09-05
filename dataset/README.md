@@ -88,7 +88,7 @@ python source/prepare_mthv2.py \
   --root dataset/raw_dataset/TKHMTH2200 \
   --train-split dataset/raw_dataset/train.txt \
   --test-split dataset/raw_dataset/test.txt \
-  --output dataset/proccessed/MTHv2 \
+  --output dataset/processed/MTHv2 \
   --val-ratio 0.10 \
   --seed 2026 \
   --overwrite
@@ -121,7 +121,7 @@ Phân bố theo từng tập con:
 Sau khi xử lý, dữ liệu được lưu tại:
 
 ```text
-dataset/proccessed/MTHv2/
+dataset/processed/MTHv2/
 ├── images/
 │   ├── train/
 │   ├── val/
