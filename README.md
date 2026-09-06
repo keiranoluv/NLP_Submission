@@ -14,7 +14,7 @@ python tools/export_model.py \
 
 ```bash
 python source/eval/eval_mthv2.py \
-  --dataset-root dataset/proccessed/MTHv2 \
+  --dataset-root dataset/processed/MTHv2 \
   --manifest test.tsv \
   --model-name PP-OCRv5_server_rec \
   --model-dir model/PP-OCR-v5/model_B1_infer \
@@ -40,7 +40,7 @@ python tools/export_model.py \
 
 ```bash
   python source/eval/eval_mthv2.py \
-  --dataset-root dataset/proccessed/MTHv2 \
+  --dataset-root dataset/processed/MTHv2 \
   --manifest test.tsv \
   --model-name PP-OCRv5_server_rec \
   --model-dir model/PP-OCR-v5/model_B2_infer \
@@ -68,7 +68,7 @@ python tools/export_model.py \
   ```
   cd ../..
   python source/eval/eval_mthv2.py \
-  --dataset-root dataset/proccessed/MTHv2 \
+  --dataset-root dataset/processed/MTHv2 \
   --manifest test.tsv \
   --model-name PP-OCRv5_server_rec \
   --model-dir model/PP-OCR-v5/model_B3_infer \
@@ -93,7 +93,7 @@ python tools/export_model.py \
 ```
 cd ../..
 python source/eval/eval_mthv2.py \
-  --dataset-root dataset/proccessed/MTHv2 \
+  --dataset-root dataset/processed/MTHv2 \
   --manifest test.tsv \
   --model-name PP-OCRv6_medium_rec \
   --model-dir model/PP-OCR-v6/model_infer \
@@ -113,6 +113,6 @@ python source/eval/eval_mthv2.py \
 ```bash
 python source/prepare_dataset/prepare_mthv2_vocab.py \
   --base-dict third_party/PaddleOCR/ppocr/utils/dict/ppocrv5_dict.txt \
-  --train-tsv dataset/proccessed/MTHv2/train.tsv \
+  --train-tsv dataset/processed/MTHv2/train.tsv \
   --output-dict source/ppocrv5_mthv2_expanded.txt
 ```
