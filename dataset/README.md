@@ -41,7 +41,7 @@ Dữ liệu MTHv2 gốc được tổ chức ở **mức trang tài liệu**, tr
 
 Vì vậy, không thể sử dụng trực tiếp ảnh trang trong raw dataset để huấn luyện mô hình recognition.
 
-Script `source/prepare_mthv2.py` thực hiện các bước:
+Script `source/prepare_dataset/prepare_mthv2.py` thực hiện các bước:
 
 * Đọc official `train.txt` và `test.txt` của MTHv2.
 * Xác định từng trang thuộc `MTH1000`, `MTH1200` hoặc `TKH`.
