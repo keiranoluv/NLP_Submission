@@ -84,7 +84,7 @@ nhằm đảm bảo việc chia dữ liệu có thể được tái lập chính
 Từ thư mục gốc của project, chạy:
 
 ```bash
-python source/prepare_mthv2.py \
+python source/prepare_dataset/prepare_mthv2.py \
   --root dataset/raw_dataset/TKHMTH2200 \
   --train-split dataset/raw_dataset/train.txt \
   --test-split dataset/raw_dataset/test.txt \
