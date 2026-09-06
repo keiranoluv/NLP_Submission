@@ -65,16 +65,21 @@ git submodule update --init --recursive
 
 ## 3. Cài đặt môi trường
 
-Khuyến nghị sử dụng Conda:
+Khuyến nghị sử dụng Conda với Python 3.12:
 
 ```bash
 conda create -n paddleocr python=3.12 -y
 conda activate paddleocr
 ```
 
-Sau đó cài các dependency cần thiết.
+Cài đặt PaddlePaddle GPU phù hợp với môi trường CUDA 12.6:
 
-Nếu repository có `requirements.txt`:
+```bash
+python -m pip install paddlepaddle-gpu==3.3.0 \
+  -i https://www.paddlepaddle.org.cn/packages/stable/cu126/
+```
+
+Sau đó cài đặt các dependency còn lại của project:
 
 ```bash
 pip install -r requirements.txt

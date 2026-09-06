@@ -8,7 +8,7 @@
   "augmentation": false,
   "postprocessing": false,
   "device": "gpu:0",
-  "manifest": "dataset/proccessed/MTHv2/test.tsv",
+  "manifest": "dataset/processed/MTHv2/test.tsv",
   "unicode_normalization": "NFC",
   "num_samples": 25262,
   "num_ground_truth_characters": 263342,
