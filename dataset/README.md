@@ -61,6 +61,8 @@ Text-line OCR samples
 
 để phù hợp với bài toán **OCR Recognition**.
 
+Dataset đã được tiền xử lý sẵn và lưu tại đây: https://www.kaggle.com/datasets/zephyrvn/nlp-project-data?select=MTHv2_processed
+
 ## Chia tập Train / Validation / Test
 
 Project sử dụng official train/test split của MTHv2.
