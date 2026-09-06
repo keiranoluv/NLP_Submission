@@ -270,7 +270,7 @@ python source/eval/eval_mthv2.py \
   --weights-label official_pretrained \
   --output-dir outputs/B0 \
   --device gpu:0 \
-  --batch-size 32
+  --batch-size 8
 ```
 
 ### B1
@@ -375,8 +375,8 @@ outputs/
 | Experiment         | Model                                        |       CER | Exact Match Accuracy | Mean Confidence |
 | ------------------ | -------------------------------------------- | --------: | -------------------: | --------------: |
 | B0                 | PP-OCRv5 Server                              |     11.55% |               38.77% |          86.44% |
-| B1                 | PP-OCRv5 Server                              |     3.25% |               75.98% |          98.21% |
-| B2                 | PP-OCRv5 Server + Expanded Vocabulary        |     2.39% |               82.46% |          97.66% |
+| B1                 | PP-OCRv5 Server Fine-tuning                              |     3.25% |               75.98% |          98.21% |
+| B2                 | PP-OCRv5 Server + Expanded Vocabulary Fine-tuning        |     2.39% |               82.46% |          97.66% |
 | B3                 | PP-OCRv5 Server + Rare-character Fine-tuning | **2.19%** |           **83.85%** |          97.35% |
 | PP-OCRv6 Medium B1 | PP-OCRv6 Medium                              |     3.51% |               74.22% |          97.73% |
 
