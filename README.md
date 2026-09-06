@@ -220,7 +220,7 @@ cd ../..
 ```bash
 cd third_party/PaddleOCR
 
-python tools/export_model.py   -c configs/rec/PP-OCRv5/PP-OCRv5_server_rec.yml   -o   Global.pretrained_model=../../model/PP-OCR-v5/model_B2.pdparams   Global.save_inference_dir=../../model/PP-OCR-v5/model_B2_infer   Global.character_dict_path=../../source/ppocrv5_mthv2_expanded.txt
+python tools/export_model.py   -c configs/rec/PP-OCRv5/PP-OCRv5_server_rec.yml   -o   Global.pretrained_model=../../model/PP-OCR-v5/model_B2.pdparams   Global.save_inference_dir=../../model/PP-OCR-v5/model_B2_infer   Global.character_dict_path=../../source/ppocrv5_mthv2_expanded.txt 
 
 cd ../..
 ```
@@ -264,13 +264,13 @@ python source/eval/eval_mthv2.py   --dataset-root dataset/processed/MTHv2   --ma
 ### B2
 
 ```bash
-python source/eval/eval_mthv2.py   --dataset-root dataset/processed/MTHv2   --manifest test.tsv   --model-name PP-OCRv5_server_rec   --model-dir model/PP-OCR-v5/model_B2_infer   --experiment B2   --weights-label model_B2   --output-dir outputs/B2   --device gpu:0   --batch-size 8
+python source/eval/eval_mthv2.py   --dataset-root dataset/processed/MTHv2   --manifest test.tsv   --model-name PP-OCRv5_server_rec   --model-dir model/PP-OCR-v5/model_B2_infer   --experiment B2   --weights-label model_B2   --output-dir outputs/B2   --device gpu:0   --batch-size 8   --custom-dictionary
 ```
 
 ### B3
 
 ```bash
-python source/eval/eval_mthv2.py   --dataset-root dataset/processed/MTHv2   --manifest test.tsv   --model-name PP-OCRv5_server_rec   --model-dir model/PP-OCR-v5/model_B3_infer   --experiment B3   --weights-label model_B3   --output-dir outputs/B3   --device gpu:0   --batch-size 8
+python source/eval/eval_mthv2.py   --dataset-root dataset/processed/MTHv2   --manifest test.tsv   --model-name PP-OCRv5_server_rec   --model-dir model/PP-OCR-v5/model_B3_infer   --experiment B3   --weights-label model_B3   --output-dir outputs/B3   --device gpu:0   --batch-size 8   --custom-dictionary
 ```
 
 ### PP-OCRv6 Medium

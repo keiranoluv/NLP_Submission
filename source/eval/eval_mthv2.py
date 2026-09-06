@@ -18,14 +18,14 @@ from tqdm import tqdm
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description=(
-            "Evaluate the pretrained PP-OCRv5 recognition model "
-            "on MTH1000 text-line crops."
+            "Evaluate a PaddleOCR recognition model "
+            "on MTHv2 text-line crops."
         )
     )
     parser.add_argument(
         "--dataset-root",
         type=Path,
-        default=Path("data/processed/MTH1000_B0"),
+        default=Path("dataset/processed/MTHv2"),
         help="Root directory containing images/ and the TSV manifest.",
     )
     parser.add_argument(
@@ -37,7 +37,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--output-dir",
         type=Path,
-        default=Path("outputs/B0_PP-OCRv5_server_rec"),
+        default=Path("outputs/eval"),
         help="Directory used to save predictions and metrics.",
     )
     parser.add_argument(
@@ -71,22 +71,29 @@ def parse_args() -> argparse.Namespace:
         help="Unicode normalization applied equally to GT and prediction.",
     )
     parser.add_argument(
-    "--model-dir",
-    type=Path,
-    default=None,
-    help="Local exported PaddleOCR inference model directory.",
+        "--model-dir",
+        type=Path,
+        default=None,
+        help="Local exported PaddleOCR inference model directory.",
     )
     parser.add_argument(
         "--experiment",
         type=str,
-        default="B0",
+        default="eval",
+        help="Experiment label written to metrics.json.",
     )
-
     parser.add_argument(
         "--weights-label",
         type=str,
-        default="official_pretrained",
+        default="unknown",
+        help="Human-readable label for the evaluated weights.",
     )
+    parser.add_argument(
+        "--custom-dictionary",
+        action="store_true",
+        help="Mark this experiment as using a custom character dictionary.",
+    )
+
     return parser.parse_args()
 
 
@@ -274,6 +281,7 @@ def main() -> None:
     mean_confidence = total_confidence / max(processed, 1)
     lines_per_second = processed / max(elapsed_seconds, 1e-9)
     milliseconds_per_line = 1000.0 * elapsed_seconds / max(processed, 1)
+
     predictions_path = args.output_dir / "predictions.tsv"
     with predictions_path.open(
         "w",
@@ -308,7 +316,7 @@ def main() -> None:
         "weights": args.weights_label,
         "model_dir": str(args.model_dir) if args.model_dir else None,
         "fine_tuned": args.model_dir is not None,
-        "custom_dictionary": False,
+        "custom_dictionary": args.custom_dictionary,
         "augmentation": False,
         "postprocessing": False,
         "device": args.device,
@@ -336,11 +344,12 @@ def main() -> None:
 
     print()
     print("=" * 64)
-    print(f"{args.experiment} - PP-OCRv5 recognition evaluation")
+    print(f"{args.experiment} - PaddleOCR recognition evaluation")
     print("=" * 64)
     print(f"Model                : {args.model_name}")
     print(f"Weights              : {args.weights_label}")
     print(f"Model dir            : {args.model_dir}")
+    print(f"Custom dictionary    : {args.custom_dictionary}")
     print(f"Samples              : {processed}")
     print(f"GT characters        : {total_gt_chars}")
     print(f"Total edit distance  : {total_distance}")
