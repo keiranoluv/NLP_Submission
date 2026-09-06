@@ -4,7 +4,7 @@
   "weights": "model_B3",
   "model_dir": "model/PP-OCR-v5/model_B3_infer",
   "fine_tuned": true,
-  "custom_dictionary": false,
+  "custom_dictionary": true,
   "augmentation": false,
   "postprocessing": false,
   "device": "gpu:0",

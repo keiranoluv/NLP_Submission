@@ -205,6 +205,8 @@ model/
 
 ## 7. Export model để inference
 
+> **Note:** B0 sử dụng trực tiếp model pretrained `PP-OCRv5_server_rec` của PaddleOCR nên không cần export. Các experiment B1, B2, B3 và PP-OCRv6 Medium sử dụng checkpoint đã fine-tune và cần export sang inference model trước khi evaluation.
+
 ### B1
 
 ```bash
@@ -255,28 +257,82 @@ Script evaluation:
 source/eval/eval_mthv2.py
 ```
 
+### B0
+
+B0 sử dụng trực tiếp model pretrained `PP-OCRv5_server_rec`, không fine-tune và không dùng custom vocabulary.
+
+```bash
+python source/eval/eval_mthv2.py \
+  --dataset-root dataset/processed/MTHv2 \
+  --manifest test.tsv \
+  --model-name PP-OCRv5_server_rec \
+  --experiment B0 \
+  --weights-label official_pretrained \
+  --output-dir outputs/B0 \
+  --device gpu:0 \
+  --batch-size 32
+```
+
 ### B1
 
 ```bash
-python source/eval/eval_mthv2.py   --dataset-root dataset/processed/MTHv2   --manifest test.tsv   --model-name PP-OCRv5_server_rec   --model-dir model/PP-OCR-v5/model_B1_infer   --experiment B1   --weights-label model_B1   --output-dir outputs/B1   --device gpu:0   --batch-size 8
+python source/eval/eval_mthv2.py \
+  --dataset-root dataset/processed/MTHv2 \
+  --manifest test.tsv \
+  --model-name PP-OCRv5_server_rec \
+  --model-dir model/PP-OCR-v5/model_B1_infer \
+  --experiment B1 \
+  --weights-label model_B1 \
+  --output-dir outputs/B1 \
+  --device gpu:0 \
+  --batch-size 8
 ```
 
 ### B2
 
 ```bash
-python source/eval/eval_mthv2.py   --dataset-root dataset/processed/MTHv2   --manifest test.tsv   --model-name PP-OCRv5_server_rec   --model-dir model/PP-OCR-v5/model_B2_infer   --experiment B2   --weights-label model_B2   --output-dir outputs/B2   --device gpu:0   --batch-size 8   --custom-dictionary
+python source/eval/eval_mthv2.py \
+  --dataset-root dataset/processed/MTHv2 \
+  --manifest test.tsv \
+  --model-name PP-OCRv5_server_rec \
+  --model-dir model/PP-OCR-v5/model_B2_infer \
+  --experiment B2 \
+  --weights-label model_B2 \
+  --output-dir outputs/B2 \
+  --device gpu:0 \
+  --batch-size 8 \
+  --custom-dictionary
 ```
 
 ### B3
 
 ```bash
-python source/eval/eval_mthv2.py   --dataset-root dataset/processed/MTHv2   --manifest test.tsv   --model-name PP-OCRv5_server_rec   --model-dir model/PP-OCR-v5/model_B3_infer   --experiment B3   --weights-label model_B3   --output-dir outputs/B3   --device gpu:0   --batch-size 8   --custom-dictionary
+python source/eval/eval_mthv2.py \
+  --dataset-root dataset/processed/MTHv2 \
+  --manifest test.tsv \
+  --model-name PP-OCRv5_server_rec \
+  --model-dir model/PP-OCR-v5/model_B3_infer \
+  --experiment B3 \
+  --weights-label model_B3 \
+  --output-dir outputs/B3 \
+  --device gpu:0 \
+  --batch-size 8 \
+  --custom-dictionary
 ```
 
 ### PP-OCRv6 Medium
 
 ```bash
-python source/eval/eval_mthv2.py   --dataset-root dataset/processed/MTHv2   --manifest test.tsv   --model-name PP-OCRv6_medium_rec   --model-dir model/PP-OCR-v6/model_infer   --experiment PP-OCRv6_medium_B1   --weights-label model   --output-dir outputs/PP-OCRv6_medium_B1   --device gpu:0   --batch-size 8
+python source/eval/eval_mthv2.py \
+  --dataset-root dataset/processed/MTHv2 \
+  --manifest test.tsv \
+  --model-name PP-OCRv6_medium_rec \
+  --model-dir model/PP-OCR-v6/model_infer \
+  --experiment PP-OCRv6_medium_B1 \
+  --weights-label model \
+  --output-dir outputs/PP-OCRv6_medium_B1 \
+  --device gpu:0 \
+  --batch-size 8
 ```
 
 Nếu không có GPU, có thể đổi:
