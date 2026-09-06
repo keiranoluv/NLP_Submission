@@ -159,22 +159,30 @@ python source/prepare_dataset/prepare_mthv2_vocab.py   --base-dict third_party/P
 
 ## 6. Training
 
-Notebook huấn luyện nằm trong:
+Quá trình huấn luyện các model trong project được thực hiện trên **Kaggle Notebook** với GPU.
+
+Các notebook tương ứng với từng experiment:
+
+| Experiment         | Model                                        | Kaggle Notebook                                                                                                    |
+| ------------------ | -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| B1                 | PP-OCRv5 Server                              | [PaddleOCR-Fine-Tuning - B1](https://www.kaggle.com/code/zephyrvn/paddleocr-fine-tuning?scriptVersionId=340862365) |
+| B2                 | PP-OCRv5 Server + Expanded Vocabulary        | [PaddleOCR-Fine-Tuning - B2](https://www.kaggle.com/code/zephyrvn/paddleocr-fine-tuning?scriptVersionId=341074260) |
+| B3                 | PP-OCRv5 Server + Rare-character Fine-tuning | [PaddleOCR-Fine-Tuning - B3](https://www.kaggle.com/code/zephyrvn/paddleocr-fine-tuning?scriptVersionId=341204845) |
+| PP-OCRv6 Medium B1 | PP-OCRv6 Medium                              | [PaddleOCR-Fine-Tuning-PPOCR-v6](https://www.kaggle.com/code/zephyrvn/paddleocr-fine-tuning-ppocr-v6)              |
+
+Bản notebook tương ứng cũng được lưu trong repository tại:
 
 ```text
 source/train/
+├── PP-OCR-v5_B1.ipynb
+├── PP-OCR-v5_B2.ipynb
+├── PP-OCR-v5_B3.ipynb
+└── PP-OCR-v6.ipynb
 ```
 
-| Experiment | Model | Notebook |
-|---|---|---|
-| B1 | PP-OCRv5 Server | `PP-OCR-v5_B1.ipynb` |
-| B2 | PP-OCRv5 Server | `PP-OCR-v5_B2.ipynb` |
-| B3 | PP-OCRv5 Server | `PP-OCR-v5_B3.ipynb` |
-| PP-OCRv6 | PP-OCRv6 Medium | `PP-OCR-v6.ipynb` |
+Các notebook trong repository được cung cấp để tham khảo và hỗ trợ việc tái lập quy trình huấn luyện. Các kết quả model được sử dụng trong báo cáo được tạo từ các Kaggle Notebook ở trên.
 
-Checkpoint đã train không được lưu trực tiếp trên GitHub vì dung lượng lớn.
-
-Link tải và cấu trúc thư mục model được mô tả tại:
+Checkpoint sau khi huấn luyện không được lưu trực tiếp trên GitHub do kích thước lớn. Link tải checkpoint và cấu trúc thư mục model được mô tả tại:
 
 ```text
 model/README.md
@@ -191,6 +199,7 @@ model/
 └── PP-OCR-v6/
     └── model.pdparams
 ```
+
 
 ---
 
@@ -304,6 +313,18 @@ Các kết quả đã chạy của nhóm được lưu sẵn trong thư mục:
 ```text
 outputs/
 ```
+
+### Tổng hợp kết quả thực nghiệm
+
+| Experiment         | Model                                        |       CER | Exact Match Accuracy | Mean Confidence |
+| ------------------ | -------------------------------------------- | --------: | -------------------: | --------------: |
+| B1                 | PP-OCRv5 Server                              |     3.25% |               75.98% |          98.21% |
+| B2                 | PP-OCRv5 Server + Expanded Vocabulary        |     2.39% |               82.46% |          97.66% |
+| B3                 | PP-OCRv5 Server + Rare-character Fine-tuning | **2.19%** |           **83.85%** |          97.35% |
+| PP-OCRv6 Medium B1 | PP-OCRv6 Medium                              |     3.51% |               74.22% |          97.73% |
+
+Tất cả các experiment được đánh giá trên cùng tập test gồm **25,262 text-line images** và **263,342 ground-truth characters**.
+
 
 ---
 
