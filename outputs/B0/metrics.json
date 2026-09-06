@@ -12,11 +12,11 @@
   "unicode_normalization": "NFC",
   "num_samples": 25262,
   "num_ground_truth_characters": 263342,
-  "total_edit_distance": 30416,
-  "cer": 0.11549999620265662,
+  "total_edit_distance": 30408,
+  "cer": 0.11546961745562805,
   "exact_match_accuracy": 0.3876573509619191,
-  "mean_model_confidence": 0.8643558199635623,
-  "elapsed_seconds": 274.11402925999994,
-  "lines_per_second": 92.15872703851555,
-  "milliseconds_per_line": 10.850844321906418
+  "mean_model_confidence": 0.8622207090564739,
+  "elapsed_seconds": 255.83135294199997,
+  "lines_per_second": 98.74473831879081,
+  "milliseconds_per_line": 10.127121880373682
 }

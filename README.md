@@ -403,7 +403,7 @@ outputs/
 
 | Experiment         | Model                                        |       CER | Exact Match Accuracy | Mean Confidence |
 | ------------------ | -------------------------------------------- | --------: | -------------------: | --------------: |
-| B0                 | PP-OCRv5 Server                              |     11.55% |               38.77% |          86.44% |
+| B0                 | PP-OCRv5 Server                              |     11.54% |               38.77% |          86.22% |
 | B1                 | PP-OCRv5 Server Fine-tuning                              |     3.25% |               75.98% |          98.21% |
 | B2                 | PP-OCRv5 Server + Expanded Vocabulary Fine-tuning        |     2.39% |               82.46% |          97.66% |
 | B3                 | PP-OCRv5 Server + Rare-character Fine-tuning | **2.19%** |           **83.85%** |          97.35% |
