@@ -152,8 +152,37 @@ source/ppocrv5_mthv2_expanded.txt
 Có thể tạo lại bằng:
 
 ```bash
-python source/prepare_dataset/prepare_mthv2_vocab.py   --base-dict third_party/PaddleOCR/ppocr/utils/dict/ppocrv5_dict.txt   --train-tsv dataset/processed/MTHv2/train.tsv   --output-dict source/ppocrv5_mthv2_expanded.txt
+python source/prepare_dataset/prepare_mthv2_vocab.py \
+  --base-dict third_party/PaddleOCR/ppocr/utils/dict/ppocrv5_dict.txt \
+  --train-tsv dataset/processed/MTHv2/train.tsv \
+  --output-dict source/ppocrv5_mthv2_expanded.txt
 ```
+
+### B3 rare-character oversampling
+
+B3 sử dụng thêm một training manifest được oversample dựa trên các ký tự hiếm. Một ký tự được xem là rare nếu tần suất xuất hiện trong tập train không vượt quá 50. Các dòng chứa ít nhất một rare character được lặp lại với tổng hệ số 3.
+
+Có thể tạo lại training manifest của B3 bằng:
+
+```bash
+python source/prepare_dataset/build_rare_oversampled_train.py \
+  --train-tsv dataset/processed/MTHv2/train.tsv \
+  --output-dir dataset/processed/MTHv2_B3_rare \
+  --rare-threshold 50 \
+  --oversample-factor 3 \
+  --shuffle
+```
+
+Output:
+
+```text
+dataset/processed/MTHv2_B3_rare/
+├── train_rare_oversampled.tsv
+├── rare_character_frequencies.csv
+└── summary.json
+```
+
+Training set B3 tăng từ **72,563** lên **120,093** dòng, tương ứng hệ số mở rộng **1.655×**.
 
 ---
 
